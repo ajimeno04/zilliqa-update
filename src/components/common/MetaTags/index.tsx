@@ -3,8 +3,7 @@ import { ContentSecurityPolicy, StrictTransportSecurity } from '@/config/securit
 import lightPalette from '@/components/theme/lightPalette'
 import darkPalette from '@/components/theme/darkPalette'
 
-const descriptionText =
-  'Zilliqa Safe is the most trusted platform to manage digital assets on Zilliqa EVM.'
+const descriptionText = 'Zilliqa Safe is the most trusted platform to manage digital assets on Zilliqa EVM.'
 const titleText = 'Zilliqa Safe'
 
 const MetaTags = ({ prefetchUrl }: { prefetchUrl: string }) => (
