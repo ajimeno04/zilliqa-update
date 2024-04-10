@@ -1,0 +1,13 @@
+diff --git a/node_modules/@safe-global/protocol-kit/dist/src/utils/eip-3770/config.js b/node_modules/@safe-global/protocol-kit/dist/src/utils/eip-3770/config.js
+index cfc40d8..eebc8be 100644
+--- a/node_modules/@safe-global/protocol-kit/dist/src/utils/eip-3770/config.js
++++ b/node_modules/@safe-global/protocol-kit/dist/src/utils/eip-3770/config.js
+@@ -138,6 +138,8 @@ exports.networks = [
+     { chainId: 18231n, shortName: 'unreal' },
+     { chainId: 23294n, shortName: 'sapphire' },
+     { chainId: 23295n, shortName: 'sapphire-testnet' },
++    { chainId: 32769n, shortName: 'zil' },
++    { chainId: 33101n, shortName: 'zil-testnet' },
+     { chainId: 34443n, shortName: 'mode' },
+     { chainId: 42161n, shortName: 'arb1' },
+     { chainId: 42170n, shortName: 'arb-nova' },
