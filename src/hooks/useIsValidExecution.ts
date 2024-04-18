@@ -79,19 +79,24 @@ const useIsValidExecution = (
        * This also fixes the over-fetching issue of the monkey patched provider.
        */
 
-      return safeContract.contract.execTransaction.staticCall(
-        safeTx.data.to,
-        safeTx.data.value,
-        safeTx.data.data,
-        safeTx.data.operation,
-        safeTx.data.safeTxGas,
-        safeTx.data.baseGas,
-        safeTx.data.gasPrice,
-        safeTx.data.gasToken,
-        safeTx.data.refundReceiver,
-        encodeSignatures(safeTx, isOwner ? wallet.address : undefined, safeTx.signatures.size < threshold),
-        { from: wallet.address, gasLimit: gasLimit.toString() },
-      )
+      return safeContract.contract.execTransaction
+        .staticCall(
+          safeTx.data.to,
+          safeTx.data.value,
+          safeTx.data.data,
+          safeTx.data.operation,
+          safeTx.data.safeTxGas,
+          safeTx.data.baseGas,
+          safeTx.data.gasPrice,
+          safeTx.data.gasToken,
+          safeTx.data.refundReceiver,
+          encodeSignatures(safeTx, isOwner ? wallet.address : undefined, safeTx.signatures.size < threshold),
+          { from: wallet.address, gasLimit: gasLimit.toString() },
+        )
+        .catch((error) => {
+          if (error.reason === 'require(false)') return true
+          else throw error
+        })
     } catch (_err) {
       const err = _err as EthersError
 
