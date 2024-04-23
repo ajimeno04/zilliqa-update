@@ -9,7 +9,7 @@ import packageJson from '../../../../package.json'
 //import AppstoreButton from '../AppStoreButton'
 import ExternalLink from '../ExternalLink'
 import MUILink from '@mui/material/Link'
-import { /* HELP_CENTER_URL, */ IS_DEV, IS_OFFICIAL_HOST } from '@/config/constants'
+import { HELP_CENTER_URL, /* IS_DEV, */ IS_OFFICIAL_HOST } from '@/config/constants'
 
 const footerPages = [
   AppRoutes.welcome.index,
@@ -45,10 +45,10 @@ const Footer = (): ReactElement | null => {
   return (
     <footer className={css.container}>
       <ul>
-        {IS_OFFICIAL_HOST || IS_DEV ? (
+        {IS_OFFICIAL_HOST /* || IS_DEV */ ? (
           <>
             <li>
-              <Typography variant="caption">&copy;{new Date().getFullYear()} Zilliqa Research Pte. Ltd.</Typography>
+              <Typography variant="caption">&copy;2022–{new Date().getFullYear()} Core Contributors GmbH</Typography>
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.terms)}>Terms</FooterLink>
@@ -56,27 +56,33 @@ const Footer = (): ReactElement | null => {
             <li>
               <FooterLink href={getHref(AppRoutes.privacy)}>Privacy</FooterLink>
             </li>
-            {/* <li>
+            <li>
               <FooterLink href={getHref(AppRoutes.licenses)}>Licenses</FooterLink>
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.imprint)}>Imprint</FooterLink>
-            </li> */}
+            </li>
             <li>
               <FooterLink href={getHref(AppRoutes.cookie)}>Cookie policy</FooterLink>
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.settings.index)}>Preferences</FooterLink>
             </li>
-            {/* <li>
+            <li>
               <ExternalLink href={HELP_CENTER_URL} noIcon sx={{ span: { textDecoration: 'underline' } }}>
                 Help
               </ExternalLink>
-            </li> */}
+            </li>
           </>
-        ) : (
-          <li>{'This is an unofficial distribution of Zilliqa Safe'}</li>
-        )}
+        ) : null}
+
+        <li>
+          <Typography variant="caption">&copy;{new Date().getFullYear()} Zilliqa Research Pte. Ltd.</Typography>
+        </li>
+
+        <li>
+          <FooterLink href={getHref(AppRoutes.settings.index)}>Preferences</FooterLink>
+        </li>
 
         <li>
           <ExternalLink href={`${packageJson.homepage}/releases/tag/v${packageJson.version}`} noIcon>
